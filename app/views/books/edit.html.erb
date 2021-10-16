@@ -1,0 +1,30 @@
+<main>
+        <p id="notice"></p>
+        <div class="container">
+  <div class="row">
+    <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
+  		<h1>Editing Book</h1>
+
+  		<form action="/books/23777" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="✓"><input type="hidden" name="_method" value="patch"><input type="hidden" name="authenticity_token" value="Pxxskiq1mp7u2VPts1+leQYRMvhxqq0W3b+hyc4W0jttT7zoY4lZ2yuK9bxdK94m7E7fZDIVs9Ye0CSufg6O0A==">
+  <div class="form-group">
+    <label for="book_title">Title</label>
+    <%= form_with model:@book, local: true do |f| %>
+     <%= f.text_field :title %>
+  </div>
+  <div class="form-group">
+    <label for="book_opinion">Opinion</label>
+     <%= f.text_field :body %>
+     <% end %>
+  </div>
+  <div class="form-group">
+    <%= link_to user_path(@user),class: "btn btn-success" do %>
+    <i class="data-disable-with">Update</i>
+    <% end %>
+  </div>
+</form>
+  		<%= link_to book_path(@user) do %>Show<% end %>
+  		|
+  		<a class="back" href="/books">Back</a>
+  </div>
+</div>
+      </div></main>
