@@ -1,7 +1,11 @@
-<% if flash[:notice] %>
-  <p><%= flash[:notice] %></p>
-<% end %>
+
 <main>
+
+   <% if flash[:notice] %>
+     <p id="notice">
+       <%= flash[:notice] %>
+     </p>
+   <% end %>
         <p id="notice"></p>
         <div class="container px-5 px-sm-0">
 
@@ -16,7 +20,7 @@
   </tr>
   <tr>
 	  <th>introduction</th>
-	  <th><%= @user.Introduction %></th>
+	  <th><%= @user.introduction %></th>
   </tr>
 </tbody></table>
 
@@ -54,6 +58,8 @@
         <% if @book.user==current_user %>
           <td><%= link_to edit_book_path(@book),class: 'btn btn-sm btn-success edit_book' do %>Edit<% end %></td>
           <td><%= link_to book_path(@book),method: :delete do %><i class="btn btn-sm btn-danger destroy_book" >Destroy</i><% end %></td>
+
+
         <% end %>
         </tr>
       </tbody></table>
