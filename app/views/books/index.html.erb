@@ -5,11 +5,6 @@
     <%= message %>
   <% end %>
 <% end %>
-   <% if flash[:notice] %>
-     <p id="notice">
-       <%= flash[:notice] %>
-     </p>
-   <% end %>
 
 
         <div class="container px-5 px-sm-0">
@@ -36,22 +31,21 @@
 <% end %>
 
 
-      <h2 class="mt-3">New book</h2>
-      <form action="/books" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="✓"><input type="hidden" name="authenticity_token" value="srocG/LGXe0BBcsv/IBHVtJQeikhHlxcpzCJLcFKWf3tnTtMPzq7cpzSDG/yYsPm85iRzcZ15qDA/HBVjW5jfQ==">
-  <div class="form-group">
-    <label for="book_title">Title</label>
-    <input class="form-control book_title" type="text" name="book[title]" id="book_title">
-  </div>
-  <div class="form-group">
-    <label for="book_opinion">Opinion</label>
-    <textarea class="form-control book_body" name="book[body]" id="book_body"></textarea>
-  </div>
-  <div class="form-group">
-    <input type="submit" name="commit" value="Create Book" class="btn btn-success" data-disable-with="Create Book">
-  </div>
-</form>
-    </div>
-    <div class="col-md-8 offset-md-1">
+      <h2 2 class="mt-3">New book</h2>
+      <%= form_with model:@book, local:true do |f| %>
+
+          <h4>Title</h4>
+  <%= f.text_field :title %>
+
+  <h4>Opinion</h4>
+  <%= f.text_field :body %>
+
+
+   <%= f.submit 'Create Book' %>
+
+<% end %>
+</div>
+<div class="col-md-8 offset-md-1">
       <h2>Books</h2>
       <table class="table table-hover table-inverse">
   <thead>
